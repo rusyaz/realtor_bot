@@ -1,0 +1,15 @@
+[Unit]
+Description=Realtor leads Telegram bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/opt/realtor_bot
+ExecStart=/opt/realtor_bot/realtor_bot
+EnvironmentFile=/opt/realtor_bot/.env
+Environment=RUST_LOG=info
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
